@@ -51,14 +51,14 @@ var data = {
 	labels: [-10, -9, -8, -7, -6,-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     datasets: [
     {
-        label: `f(x) = x^3`,
+        label: `f(x) = x³`,
         function: function(x) { return Math.pow(x,3) },
         borderColor: "rgba(255, 192, 192, 1)",
         data: [],
         fill: false
     },
     {
-        label: `g(x) = ${c.OXabs?"|":""}${c.OXsym?"-":""}((${c.OYabs?"|":""}${c.OYsym?"-":""}x+${c.A}${c.OYabs?"|":""})^3+${c.B})${c.OXabs?"|":""}`,
+        label: `g(x) = ${c.OXabs?"|":""}${c.OXsym?"-":""}((${c.OYabs?"|":""}${c.OYsym?"-":""}x+${c.A}${c.OYabs?"|":""})³+${c.B})${c.OXabs?"|":""}`,
         function: function(x) {
         	return mayBeAbs((c.OXsym?-1:1)*(Math.pow(mayBeAbs((c.OYsym?-1:1)*x+c.A,c.OYabs),3)+c.B),c.OXabs);
         },
