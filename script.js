@@ -10,8 +10,8 @@ var controls = function() {
 window.onload = function() {
   var ctrls = new controls();
   var gui = new dat.GUI({width:window.innerWidth-20,autoPlace:false});
-  var a=gui.add(ctrls, 'A', -10, 10).step(1).name("Zmienna A");
-  var b=gui.add(ctrls, 'B', -10, 10).step(1).name("Zmienna B");
+  var a=gui.add(ctrls, 'A', -10, 10).step(1).name("Zmienna A <--prawo lewo-->");
+  var b=gui.add(ctrls, 'B', -10, 10).step(1).name("Zmienna B <--dół góra-->");
   var ox = gui.add(ctrls, 'OXsym').name("Symetria względem OX");
   var oy = gui.add(ctrls, 'OYsym').name("Symetria względem OY");
   var oxabs = gui.add(ctrls, 'OXabs').name("Odbicie wartości ujemnych względem OX");
@@ -37,6 +37,11 @@ window.onload = function() {
   draw(ctrls);
   document.getElementById("controls").appendChild(gui.domElement);
 };
+function mayBeAbs(param,flag){
+  if(flag)
+    return Math.abs(param);
+  return param;
+}
 function draw(c){
   try{
   myBarChart.destroy();
@@ -53,9 +58,9 @@ var data = {
         fill: false
     },
     {
-        label: `g(x) = ${c.OXsym?"-":""}((${c.OYsym?"-":""}x+${c.A})^3+${c.B})`,
+        label: `g(x) = ${c.OXabs?"|":""}${c.OXsym?"-":""}((${c.OYabs?"|":""}${c.OYsym?"-":""}x+${c.A}${c.OYabs?"|":""})^3+${c.B})${c.OXabs?"|":""}`,
         function: function(x) {
-        	return (c.OXsym?-1:1)*(Math.pow((c.OYsym?-1:1)*x+c.A,3)+c.B) 
+        	return mayBeAbs((c.OXsym?-1:1)*(Math.pow(mayBeAbs((c.OYsym?-1:1)*x+c.A,c.OYabs),3)+c.B),c.OXabs);
         },
         borderColor: "rgba(75, 192, 192, 1)",
         data: [],
@@ -89,7 +94,12 @@ myBarChart = new Chart(ctx, {
       aspectRatio: 3,
     	animation: {
         duration: 0
-    	}
+    	},
+      legend:{
+        labels:{
+          fontSize: 20
+        }
+      }
     }
 });
 }
