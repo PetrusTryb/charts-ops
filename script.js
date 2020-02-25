@@ -12,10 +12,10 @@ window.onload = function() {
   var gui = new dat.GUI({width:window.innerWidth-20,autoPlace:false});
   var a=gui.add(ctrls, 'A', -10, 10).step(1).name("Zmienna A <--prawo lewo-->");
   var b=gui.add(ctrls, 'B', -10, 10).step(1).name("Zmienna B <--dół góra-->");
-  var ox = gui.add(ctrls, 'OXsym').name("Symetria względem OX");
-  var oy = gui.add(ctrls, 'OYsym').name("Symetria względem OY");
-  var oxabs = gui.add(ctrls, 'OXabs').name("Odbicie wartości ujemnych względem OX");
-  var oyabs = gui.add(ctrls, 'OYabs').name("Odbicie wartości ujemnych względem OY");
+  var ox = gui.add(ctrls, 'OXsym').name("Symetria względem OX ( -f(x) )");
+  var oy = gui.add(ctrls, 'OYsym').name("Symetria względem OY ( f(-x) )");
+  var oxabs = gui.add(ctrls, 'OXabs').name("Odbicie wartości ujemnych względem OX ( | f(x) | )");
+  var oyabs = gui.add(ctrls, 'OYabs').name("Odbicie wartości ujemnych względem OY ( f( | x | ) )");
   a.onChange(function(value) {
   draw(ctrls);
 });
