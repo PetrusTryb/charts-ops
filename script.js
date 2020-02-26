@@ -9,13 +9,13 @@ var controls = function() {
 };
 window.onload = function() {
   var ctrls = new controls();
-  var gui = new dat.GUI({width:window.innerWidth-20,autoPlace:false});
-  var a=gui.add(ctrls, 'A', -10, 10).step(1).name("Zmienna A <--prawo lewo-->");
-  var b=gui.add(ctrls, 'B', -10, 10).step(1).name("Zmienna B <--dół góra-->");
-  var ox = gui.add(ctrls, 'OXsym').name("Symetria względem OX ( -f(x) )");
-  var oy = gui.add(ctrls, 'OYsym').name("Symetria względem OY ( f(-x) )");
-  var oxabs = gui.add(ctrls, 'OXabs').name("Odbicie wartości ujemnych względem OX ( | f(x) | )");
-  var oyabs = gui.add(ctrls, 'OYabs').name("Odbicie wartości ujemnych względem OY ( f( | x | ) )");
+  window.gui = new dat.GUI({width:window.innerWidth-20,autoPlace:false});
+  var a=gui.add(ctrls, 'A', -10, 10).step(1).name("A variable horizontal shift <--right left-->");
+  var b=gui.add(ctrls, 'B', -10, 10).step(1).name("B variable vertical shift <--down up-->");
+  var ox = gui.add(ctrls, 'OXsym').name("Horizontal flip ( -f(x) )");
+  var oy = gui.add(ctrls, 'OYsym').name("Vertical flip ( f(-x) )");
+  var oxabs = gui.add(ctrls, 'OXabs').name("Negative Y flip ( | f(x) | )");
+  var oyabs = gui.add(ctrls, 'OYabs').name("Positive X copy ( f( | x | ) )");
   a.onChange(function(value) {
   draw(ctrls);
 });
@@ -37,6 +37,9 @@ window.onload = function() {
   draw(ctrls);
   document.getElementById("controls").appendChild(gui.domElement);
 };
+window.onresize=function(){
+  gui.width=window.innerWidth-20;
+}
 function mayBeAbs(param,flag){
   if(flag)
     return Math.abs(param);

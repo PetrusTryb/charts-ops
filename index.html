@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Operacje na wykresach funkcji</title>
+	<title>Charts operations</title>
+	<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js; style-src https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css 'unsafe-inline'">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
@@ -9,10 +10,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js" integrity="sha256-HJ7j+71YYw6Kcs8THwQV9lXmPOcR0eXlg7n8KRTZsyA=" crossorigin="anonymous"></script>
 	<script src="script.js"></script>
 </head>
-<body style="background-color: #dddddd">
+<body style="background-color: #dddddd; text-align: center;">
 	<div id="chartContainer">
 		<canvas id="myChart"></canvas>
 	</div>
 	<div id="controls"></div>
+	<br/>
+	<sub>&copy; Piotr Trybisz 1bg &bull; <a href="https://github.com/PetrusTryb/charts-ops" target="_blank">GitHub</a></sub>
 </body>
 </html>
