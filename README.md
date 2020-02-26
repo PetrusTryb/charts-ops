@@ -1,2 +1,2 @@
-# charts-ops [![Netlify Status](https://api.netlify.com/api/v1/badges/85e12cd7-34c5-42c2-b989-ac344963cb1b/deploy-status)](https://app.netlify.com/sites/functions-operations/deploys)
+# charts-ops [![Netlify Status](https://api.netlify.com/api/v1/badges/85e12cd7-34c5-42c2-b989-ac344963cb1b/deploy-status)](https://app.netlify.com/sites/functions-operations/deploys) [![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade-score/functions-operations.netlify.com?label=Security&publish)](https://observatory.mozilla.org/analyze/functions-operations.netlify.com)
 Charts operations demo (math homework)
